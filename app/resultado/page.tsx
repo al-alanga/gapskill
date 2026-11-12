@@ -22,7 +22,7 @@ export default function ResultPage() {
     } catch { setReport(null); }
   }, []);
 
-  if (!report) return <main className="mx-auto max-w-3xl px-5 py-16"><h1 className="text-2xl font-bold text-ink">Resultado não encontrado</h1><p className="mt-3 text-slate-600">O resultado pode ter expirado ao fechar o navegador. Faz uma nova análise.</p><Link href="/" className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 font-semibold text-white"><ArrowLeft size={18}/> Voltar ao início</Link></main>;
+  if (!report) return <main className="mx-auto max-w-3xl px-5 py-16"><h1 className="text-2xl font-bold text-ink">Resultado não encontrado</h1><p className="mt-3 text-slate-600">O resultado pode ter expirado ao fechar o navegador. Inicie uma nova análise.</p><Link href="/" className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 font-semibold text-white"><ArrowLeft size={18}/> Voltar ao início</Link></main>;
 
   const score = report.compatibilityScore;
   return <main className="min-h-screen px-5 py-10 sm:py-14">
@@ -31,7 +31,7 @@ export default function ResultPage() {
       <header className="mt-7">
         <p className="text-sm font-bold uppercase tracking-[.18em] text-brand">Relatório GapSkill</p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">{report.title}</h1>
-        <p className="mt-3 max-w-2xl leading-7 text-slate-600">Compara os requisitos que o sistema identificou com evidências encontradas no CV que enviaste.</p>
+        <p className="mt-3 max-w-2xl leading-7 text-slate-600">Compara os requisitos que o sistema identificou com evidências encontradas no CV que enviou.</p>
       </header>
 
       <section className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -70,7 +70,7 @@ export default function ResultPage() {
 
       <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
         <div className="flex items-center gap-3"><GraduationCap className="text-brand" size={24}/><h2 className="text-xl font-bold text-ink">Próximo passo: formação</h2></div>
-        <p className="mt-3 leading-7 text-slate-600">O catálogo de cursos ainda não está ligado. Usa as competências marcadas como parciais ou sem evidência como lista inicial de temas para estudar; as recomendações de cursos serão ativadas numa fase seguinte.</p>
+        <p className="mt-3 leading-7 text-slate-600">O catálogo de cursos ainda não está integrado. Utilize as competências assinaladas como parciais ou sem evidência como temas preliminares para desenvolvimento. As recomendações de cursos serão activadas numa fase posterior.</p>
         <div className="mt-4 flex flex-wrap gap-2">{report.gaps.filter(g=>g.status!=="matched").slice(0,8).map(g=><span key={g.skillId} className="rounded-full bg-slate-100 px-3 py-1.5 text-sm text-slate-700">{g.skillName}</span>)}</div>
       </section>
 
