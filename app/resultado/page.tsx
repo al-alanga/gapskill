@@ -75,7 +75,7 @@ export default function ResultPage() {
       </section>
 
       <div className="mt-8 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950"><CircleAlert className="mt-0.5 shrink-0" size={20}/><p>{report.disclaimer} Este resultado é preliminar, utiliza uma taxonomia ainda limitada e não é guardado numa conta ou base de dados nesta versão.</p></div>
-      <div className="mt-8 flex justify-center"><Link href="/" className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 font-semibold text-white"><CheckCircle2 size={18}/> Analisar outra oportunidade</Link></div>
+      <div className="mt-8 flex flex-col items-center justify-center gap-4"><Link href="/" className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 font-semibold text-white"><CheckCircle2 size={18}/> Analisar outra oportunidade</Link><Link href="/metodologia" className="text-sm font-medium text-brand hover:underline">Consultar metodologia</Link><Link href="/privacidade" className="text-sm text-slate-500 hover:underline">Privacidade e tratamento de dados</Link></div>
     </div>
   </main>;
 }
