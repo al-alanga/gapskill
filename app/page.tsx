@@ -24,15 +24,15 @@ export default function HomePage() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!consent) {
-      setState({ kind: "error", message: "Confirma que compreendes como os teus dados serão utilizados para esta análise." });
+      setState({ kind: "error", message: "Confirme que compreende como os seus dados serão utilizados nesta análise." });
       return;
     }
     if (!jobUrl.trim() && !jobText.trim()) {
-      setState({ kind: "error", message: "Cola a descrição da vaga ou indica o URL. A leitura automática de links ainda não está disponível." });
+      setState({ kind: "error", message: "Insira a descrição da oportunidade ou indique o URL. A leitura automática de links ainda não está disponível." });
       return;
     }
     if (!cv) {
-      setState({ kind: "error", message: "Carrega o teu CV em PDF ou DOCX." });
+      setState({ kind: "error", message: "Carregue o seu CV em PDF ou DOCX." });
       return;
     }
 
@@ -71,7 +71,7 @@ export default function HomePage() {
         </a>
         <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
           <a href="#como-funciona" className="hover:text-brand">Como funciona</a>
-          <a href="#beneficios" className="hover:text-brand">O que vais descobrir</a>
+          <a href="#beneficios" className="hover:text-brand">O que permite identificar</a>
           <a href="#analise" className="rounded-full bg-ink px-5 py-2.5 text-white transition hover:bg-brand">Analisar oportunidade</a>
         </nav>
         <a href="#analise" className="rounded-full bg-ink px-4 py-2.5 text-sm font-semibold text-white md:hidden">Começar</a>
@@ -148,10 +148,10 @@ export default function HomePage() {
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div><p className="text-sm font-bold uppercase tracking-[.18em] text-brand">Da análise à evolução profissional</p><h2 className="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Transforme lacunas em planos de desenvolvimento.</h2><p className="mt-4 leading-7 text-slate-600">A GapSkill relaciona requisitos publicados no mercado com competências e oportunidades de formação. Não promete colocação profissional: apoia decisões de desenvolvimento com base em evidências.</p></div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <article className="rounded-2xl bg-white p-5 shadow-sm"><BriefcaseBusiness className="text-brand" size={25} /><h3 className="mt-4 font-bold">Vagas reais</h3><p className="mt-2 text-sm leading-6 text-slate-600">Analise os requisitos publicados nos anúncios de emprego.</p></article>
-            <article className="rounded-2xl bg-white p-5 shadow-sm"><Target className="text-brand" size={25} /><h3 className="mt-4 font-bold">Gaps claros</h3><p className="mt-2 text-sm leading-6 text-slate-600">Distingue evidências identificadas de competências não mencionadas no CV.</p></article>
-            <article className="rounded-2xl bg-white p-5 shadow-sm"><GraduationCap className="text-brand" size={25} /><h3 className="mt-4 font-bold">Formação útil</h3><p className="mt-2 text-sm leading-6 text-slate-600">Identifique áreas de aprendizagem alinhadas com as lacunas.</p></article>
-            <article className="rounded-2xl bg-white p-5 shadow-sm"><MessageCircle className="text-emerald-600" size={25} /><h3 className="mt-4 font-bold">Web e WhatsApp</h3><p className="mt-2 text-sm leading-6 text-slate-600">A mesma inteligência de competências, através de diferentes canais.</p></article>
+            <article className="rounded-2xl bg-white p-5 shadow-sm"><BriefcaseBusiness className="text-brand" size={25} /><h3 className="mt-4 font-bold">Oportunidades publicadas</h3><p className="mt-2 text-sm leading-6 text-slate-600">Analise os requisitos publicados nos anúncios de emprego.</p></article>
+            <article className="rounded-2xl bg-white p-5 shadow-sm"><Target className="text-brand" size={25} /><h3 className="mt-4 font-bold">Lacunas identificáveis</h3><p className="mt-2 text-sm leading-6 text-slate-600">Distingue evidências identificadas de competências não mencionadas no CV.</p></article>
+            <article className="rounded-2xl bg-white p-5 shadow-sm"><GraduationCap className="text-brand" size={25} /><h3 className="mt-4 font-bold">Desenvolvimento orientado</h3><p className="mt-2 text-sm leading-6 text-slate-600">Identifique áreas de aprendizagem alinhadas com as lacunas.</p></article>
+            <article className="rounded-2xl bg-white p-5 shadow-sm"><MessageCircle className="text-emerald-600" size={25} /><h3 className="mt-4 font-bold">Acesso multicanal</h3><p className="mt-2 text-sm leading-6 text-slate-600">A mesma inteligência de competências, através de diferentes canais.</p></article>
           </div>
         </div>
       </section>
