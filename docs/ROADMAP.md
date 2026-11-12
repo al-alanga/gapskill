@@ -13,7 +13,7 @@
 ## P1 — Análise real
 - [ ] Persistência PostgreSQL e migrações.
 - [ ] Armazenamento privado de documentos.
-- [ ] Extração segura de texto PDF/DOCX.
+- [x] Extração de texto PDF/DOCX (primeira versão; validar em ambiente de execução).
 - [ ] Extração segura de anúncios com fallback manual.
 - [ ] Esquemas validados para extração estruturada.
 - [ ] Serviço de normalização com taxonomia versionada.
