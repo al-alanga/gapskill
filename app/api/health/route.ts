@@ -6,11 +6,13 @@ export function GET() {
     service: "gapskill",
     timestamp: new Date().toISOString(),
     capabilities: {
-      jobUrlExtraction: "not_configured",
-      cvParsing: "not_configured",
+      manualJobText: "enabled",
+      pdfDocxTextExtraction: "enabled",
+      deterministicSkillMatching: "enabled",
+      jobUrlFetching: "disabled_pending_ssrf_safe_fetcher",
       aiAnalysis: "not_configured",
-      whatsapp: "not_configured",
       database: "not_configured",
+      whatsapp: "not_configured",
     },
   });
 }
