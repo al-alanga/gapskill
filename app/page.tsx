@@ -34,12 +34,22 @@ export default function HomePage() {
       setState({ kind: "error", message: "Confirme que compreende como os seus dados serão utilizados nesta análise." });
       return;
     }
-    if (!jobUrl.trim() && !jobText.trim()) {
-      setState({ kind: "error", message: "Insira a descrição da oportunidade ou indique o URL. A leitura automática de links ainda não está disponível." });
+    if (!jobText.trim()) {
+      setState({ kind: "error", message: "Insira a descrição da oportunidade. A leitura automática do link ainda não está disponível." });
       return;
     }
     if (!cv) {
       setState({ kind: "error", message: "Carregue o seu CV em PDF ou DOCX." });
+      return;
+    }
+    const allowedTypes = ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+    const hasAllowedExtension = /\\.(pdf|docx)$/i.test(cv.name);
+    if (!hasAllowedExtension || (cv.type && !allowedTypes.includes(cv.type))) {
+      setState({ kind: "error", message: "Formato não suportado. Utilize um ficheiro PDF ou DOCX." });
+      return;
+    }
+    if (cv.size > 8 * 1024 * 1024) {
+      setState({ kind: "error", message: "O ficheiro excede o limite de 8 MB. Escolha um CV mais pequeno." });
       return;
     }
 
@@ -73,9 +83,10 @@ export default function HomePage() {
             <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#173e78] text-white"><BrainCircuit size={24} strokeWidth={1.8}/></span>
             <span><span className="block text-xl font-bold tracking-tight text-[#173e78]">GapSkill</span><span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[.19em] text-slate-500">Inteligência de competências</span></span>
           </a>
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+          <nav aria-label="Navegação principal" className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
             <a href="/metodologia" className="transition hover:text-[#173e78]">Metodologia</a>
             <a href="#aplicacoes" className="transition hover:text-[#173e78]">Aplicações</a>
+            <a href="#perguntas" className="transition hover:text-[#173e78]">Perguntas frequentes</a>
             <a href="#analise" className="inline-flex items-center gap-2 rounded-md bg-[#173e78] px-5 py-3 font-semibold text-white transition hover:bg-[#2458a6]">Iniciar diagnóstico <ArrowRight size={16}/></a>
           </nav>
           <a href="#analise" className="rounded-md bg-[#173e78] px-4 py-2.5 text-sm font-semibold text-white md:hidden">Começar</a>
@@ -149,6 +160,39 @@ export default function HomePage() {
         </div>
       </section>
 
+
+      <section id="perguntas" className="border-b border-slate-200 bg-[#f5f7fa] py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl px-5 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-[#2458a6]">Perguntas frequentes</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#142b49] sm:text-4xl">Antes de começar.</h2>
+            <p className="mt-4 leading-7 text-slate-600">O essencial sobre o diagnóstico GapSkill e a forma como interpretar os resultados.</p>
+          </div>
+          <div className="mt-8 divide-y divide-slate-200 border-y border-slate-200 bg-white">
+            <details className="group p-5 sm:p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-[#142b49] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2458a6]">O diagnóstico garante que vou conseguir emprego?<span aria-hidden="true" className="text-xl text-[#2458a6] transition group-open:rotate-45">+</span></summary>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Não. A GapSkill é uma ferramenta de apoio ao desenvolvimento profissional. Ajuda a comparar requisitos com evidências no CV, mas não garante entrevistas, contratação ou resultados de recrutamento.</p>
+            </details>
+            <details className="group p-5 sm:p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-[#142b49] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2458a6]">E se uma competência não aparecer no meu CV?<span aria-hidden="true" className="text-xl text-[#2458a6] transition group-open:rotate-45">+</span></summary>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Isso indica que não foi encontrada evidência suficiente no documento enviado. Não significa necessariamente que não possui essa competência; pode ser útil acrescentar experiências, resultados ou formação relevantes ao CV.</p>
+            </details>
+            <details className="group p-5 sm:p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-[#142b49] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2458a6]">Que ficheiros posso enviar?<span aria-hidden="true" className="text-xl text-[#2458a6] transition group-open:rotate-45">+</span></summary>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Pode enviar o CV em PDF ou DOCX, até 8 MB. Para melhorar a análise, confirme que o documento está legível e que apresenta as suas experiências e competências de forma clara.</p>
+            </details>
+            <details className="group p-5 sm:p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-[#142b49] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2458a6]">Posso fornecer apenas o link da vaga?<span aria-hidden="true" className="text-xl text-[#2458a6] transition group-open:rotate-45">+</span></summary>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Nesta versão, a leitura automática de páginas externas ainda não está disponível. Cole a descrição da oportunidade no campo próprio; o link é opcional e serve como referência.</p>
+            </details>
+          </div>
+          <div className="mt-7 flex flex-col items-start justify-between gap-4 border border-[#c9d9ee] bg-white p-5 sm:flex-row sm:items-center sm:p-6">
+            <div><h3 className="font-semibold text-[#142b49]">Pronto para identificar as suas prioridades?</h3><p className="mt-1 text-sm leading-6 text-slate-600">Comece com os requisitos de uma vaga e o CV que pretende melhorar.</p></div>
+            <a href="#analise" className="inline-flex shrink-0 items-center gap-2 bg-[#173e78] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2458a6]">Começar agora <ArrowRight size={16}/></a>
+          </div>
+        </div>
+      </section>
+
       <section id="analise" className="scroll-mt-24 bg-[#142b49] py-16 text-white sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.78fr_1.22fr] lg:px-8">
           <div>
@@ -158,16 +202,16 @@ export default function HomePage() {
             <div className="mt-8 space-y-4 text-sm text-slate-300"><p className="flex items-center gap-3"><FileText size={18} className="text-[#a9c9f5]"/> CV em PDF ou DOCX, até 8 MB</p><p className="flex items-center gap-3"><LockKeyhole size={18} className="text-[#a9c9f5]"/> Submissão com consentimento explícito</p><p className="flex items-center gap-3"><Building2 size={18} className="text-[#a9c9f5]"/> Sem registo empresarial</p></div>
           </div>
           <div className="bg-white p-5 text-[#172b45] shadow-[0_20px_60px_rgba(0,0,0,.18)] sm:p-8">
-            <div className="mb-6 border-b border-slate-200 pb-5"><h3 className="text-xl font-semibold text-[#142b49]">Dados para o diagnóstico</h3><p className="mt-2 text-sm leading-6 text-slate-500">Preencha os campos abaixo. A descrição da vaga é necessária enquanto a leitura automática de links está em desenvolvimento.</p></div>
+            <div className="mb-6 border-b border-slate-200 pb-5"><h3 className="text-xl font-semibold text-[#142b49]">Dados para o diagnóstico</h3><p className="mt-2 text-sm leading-6 text-slate-500">Preencha os campos abaixo. Cole a descrição da vaga, pois a leitura automática de links ainda não está disponível.</p></div>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div><label htmlFor="jobUrl" className="mb-2 block text-sm font-semibold text-[#142b49]">Link da oportunidade <span className="font-normal text-slate-400">(opcional)</span></label><div className="flex items-center gap-3 border border-slate-300 px-3 focus-within:border-[#2458a6] focus-within:ring-2 focus-within:ring-blue-100"><Link2 size={18} className="shrink-0 text-slate-400"/><input id="jobUrl" type="url" value={jobUrl} onChange={e=>setJobUrl(e.target.value)} placeholder="https://..." className="min-w-0 flex-1 py-3.5 text-sm outline-none placeholder:text-slate-400"/></div></div>
               <div><label htmlFor="jobText" className="mb-2 block text-sm font-semibold text-[#142b49]">Descrição da oportunidade <span className="text-red-600">*</span></label><textarea id="jobText" value={jobText} onChange={e=>setJobText(e.target.value)} rows={5} maxLength={30000} placeholder="Insira responsabilidades, requisitos e qualificações indicados no anúncio..." className="w-full resize-y border border-slate-300 px-3.5 py-3 text-sm leading-6 outline-none transition focus:border-[#2458a6] focus:ring-2 focus:ring-blue-100"/><p className="mt-1.5 text-right text-xs text-slate-400">{jobText.length.toLocaleString("pt-PT")} / 30.000 caracteres</p></div>
-              <div><label htmlFor="cv" className="mb-2 block text-sm font-semibold text-[#142b49]">Curriculum Vitae <span className="text-red-600">*</span></label><label htmlFor="cv" className="flex cursor-pointer items-center gap-3 border border-dashed border-slate-300 bg-slate-50 p-4 transition hover:border-[#2458a6] hover:bg-blue-50"><span className="flex h-10 w-10 items-center justify-center bg-white text-[#2458a6]"><UploadCloud size={21}/></span><span className="min-w-0 flex-1"><span className="block truncate text-sm font-semibold">{cv?cv.name:"Seleccione um ficheiro"}</span><span className="mt-1 block text-xs text-slate-500">PDF ou DOCX · Máximo 8 MB</span></span><input id="cv" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" className="sr-only" onChange={e=>setCv(e.target.files?.[0]??null)}/></label></div>
+              <div><label htmlFor="cv" className="mb-2 block text-sm font-semibold text-[#142b49]">Curriculum Vitae <span className="text-red-600">*</span></label><label htmlFor="cv" className="flex cursor-pointer items-center gap-3 border border-dashed border-slate-300 bg-slate-50 p-4 transition hover:border-[#2458a6] hover:bg-blue-50"><span className="flex h-10 w-10 items-center justify-center bg-white text-[#2458a6]"><UploadCloud size={21}/></span><span className="min-w-0 flex-1"><span className="block truncate text-sm font-semibold">{cv?cv.name:"Seleccione um ficheiro"}</span><span className="mt-1 block text-xs text-slate-500">PDF ou DOCX · Máximo 8 MB</span></span><input id="cv" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" className="sr-only" onChange={e=>{setCv(e.target.files?.[0]??null);setState({kind:"idle"});}}/></label></div>
               <label className="flex items-start gap-3 text-xs leading-5 text-slate-600"><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)} className="mt-1 h-4 w-4 accent-[#2458a6]"/><span>Autorizo o tratamento do URL e do CV para realizar esta análise. Qualquer utilização para inteligência agregada requer consentimento separado.</span></label>
               <button type="submit" disabled={state.kind==="loading"} className="flex w-full items-center justify-center gap-2 bg-[#173e78] px-5 py-4 text-sm font-semibold text-white transition hover:bg-[#2458a6] disabled:cursor-wait disabled:opacity-60">{state.kind==="loading"?"A processar submissão...":"Solicitar diagnóstico"} <ArrowRight size={17}/></button>
               {state.kind==="success"&&<div role="status" className="border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-900">{state.message}</div>}
               {state.kind==="error"&&<div role="alert" className="border border-red-200 bg-red-50 p-4 text-sm text-red-700">{state.message}</div>}
-              <p className="text-xs leading-5 text-slate-400">A análise é preliminar. Competências não mencionadas no CV podem existir. Os resultados desta versão não são guardados numa conta.</p>
+              <p className="text-xs leading-5 text-slate-400">A análise é preliminar. Competências não mencionadas no CV podem existir. Os resultados desta versão não são guardados numa conta. Consulte também a nossa <a className="underline underline-offset-2 hover:text-[#2458a6]" href="/privacidade">informação de privacidade</a>.</p>
             </form>
           </div>
         </div>
