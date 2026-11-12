@@ -103,7 +103,7 @@ export default function HomePage() {
               <label htmlFor="jobUrl" className="mb-2 block text-sm font-semibold text-ink">Link da oportunidade (opcional se colares a descrição)</label>
               <div className="flex items-center gap-3 rounded-xl border border-slate-200 px-4 transition focus-within:border-brand focus-within:ring-4 focus-within:ring-blue-50">
                 <Link2 size={19} className="shrink-0 text-slate-400" />
-                <input id="jobUrl" type="url" required value={jobUrl} onChange={(event) => setJobUrl(event.target.value)} placeholder="https://site.com/vaga..." className="min-w-0 flex-1 py-4 text-sm outline-none placeholder:text-slate-400" />
+                <input id="jobUrl" type="url" value={jobUrl} onChange={(event) => setJobUrl(event.target.value)} placeholder="https://site.com/vaga..." className="min-w-0 flex-1 py-4 text-sm outline-none placeholder:text-slate-400" />
               </div>
               <p className="mt-2 text-xs text-slate-500">A leitura automática de links ainda está em desenvolvimento. Por agora, cola a descrição abaixo.</p>
             </div>
