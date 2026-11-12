@@ -1,0 +1,26 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft, ShieldCheck } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Privacidade",
+  description: "Informação sobre o tratamento de dados na versão inicial da GapSkill.",
+};
+
+export default function PrivacyPage() {
+  return <main className="min-h-screen bg-[#f5f7fa] text-[#172b45]">
+    <header className="border-b border-slate-200 bg-white"><div className="mx-auto flex max-w-4xl items-center justify-between px-5 py-5"><Link href="/" className="font-bold text-[#173e78]">GapSkill</Link><Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-[#173e78]"><ArrowLeft size={16}/> Página inicial</Link></div></header>
+    <section className="border-b border-slate-200 bg-white"><div className="mx-auto max-w-4xl px-5 py-14 sm:py-18"><p className="text-xs font-bold uppercase tracking-[.18em] text-[#2458a6]">Confiança e responsabilidade</p><h1 className="mt-3 text-4xl font-semibold tracking-tight text-[#142b49] sm:text-5xl">Privacidade e tratamento de dados</h1><p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">Esta página descreve, de forma preliminar, como os dados submetidos para um diagnóstico são tratados na versão inicial da GapSkill.</p></div></section>
+    <section className="mx-auto max-w-4xl space-y-8 px-5 py-12 sm:py-16">
+      <div className="flex items-start gap-4 border border-blue-100 bg-blue-50 p-5"><ShieldCheck className="mt-1 shrink-0 text-[#2458a6]" size={24}/><div><h2 className="font-semibold text-[#142b49]">Aviso importante</h2><p className="mt-2 text-sm leading-7 text-slate-700">Este texto é uma base informativa e não substitui uma política de privacidade validada juridicamente. Antes de disponibilizar o serviço ao público, o responsável pelo projecto deve confirmar a infraestrutura, os fornecedores, os prazos de conservação, os contactos para pedidos dos titulares e os requisitos legais aplicáveis em Moçambique.</p></div></div>
+      <article><h2 className="text-xl font-semibold text-[#142b49]">1. Dados submetidos</h2><p className="mt-3 text-sm leading-7 text-slate-600">Para realizar uma análise, a pessoa pode fornecer o texto ou URL de uma oportunidade profissional, um CV e a confirmação de consentimento. O CV pode conter dados pessoais, como nome, contactos, experiência profissional e formação académica.</p></article>
+      <article><h2 className="text-xl font-semibold text-[#142b49]">2. Finalidade</h2><p className="mt-3 text-sm leading-7 text-slate-600">Os dados são utilizados para processar o pedido de análise e apresentar uma comparação preliminar entre os requisitos da oportunidade e as evidências encontradas no CV. Qualquer utilização adicional para estatísticas agregadas, investigação ou melhoria do produto deve ser explicada separadamente e, quando necessário, depender de consentimento específico.</p></article>
+      <article><h2 className="text-xl font-semibold text-[#142b49]">3. Conservação e armazenamento</h2><p className="mt-3 text-sm leading-7 text-slate-600">Na versão inicial, o relatório é mantido temporariamente no armazenamento de sessão do navegador e não existe uma área de conta com histórico persistente. O ficheiro é enviado ao servidor para processamento. Esta descrição deve ser actualizada se forem introduzidos registos de servidor, monitorização, armazenamento de ficheiros ou serviços de terceiros; não se deve assumir que a ausência de histórico significa ausência total de registos técnicos.</p></article>
+      <article><h2 className="text-xl font-semibold text-[#142b49]">4. Partilha com terceiros</h2><p className="mt-3 text-sm leading-7 text-slate-600">Antes do lançamento público, deve ser identificada qualquer entidade que aloje a aplicação, processe ficheiros, forneça serviços de análise ou receba dados técnicos. A versão publicada desta política deve indicar os fornecedores efectivamente utilizados e as respectivas finalidades. Não carregue informação confidencial de terceiros sem autorização.</p></article>
+      <article><h2 className="text-xl font-semibold text-[#142b49]">5. Segurança e direitos</h2><p className="mt-3 text-sm leading-7 text-slate-600">A plataforma deve adoptar medidas proporcionais para proteger os dados, limitar o acesso e evitar a conservação desnecessária. Para permitir pedidos de acesso, correcção ou eliminação, o responsável pelo serviço deverá publicar um contacto válido e um procedimento de atendimento antes do lançamento.</p></article>
+      <article><h2 className="text-xl font-semibold text-[#142b49]">6. Contacto do responsável</h2><p className="mt-3 text-sm leading-7 text-slate-600">O contacto oficial do responsável pelo tratamento ainda deve ser acrescentado. Esta página não deve ser considerada final enquanto esse contacto e os detalhes reais da infraestrutura não forem confirmados.</p></article>
+      <p className="border-t border-slate-200 pt-5 text-xs leading-6 text-slate-500">Última revisão: versão inicial do produto. Actualize este documento quando mudar o modo de recolha, análise, partilha ou conservação de dados.</p>
+      <Link href="/#analise" className="inline-flex items-center justify-center bg-[#173e78] px-5 py-3 text-sm font-semibold text-white hover:bg-[#2458a6]">Voltar à análise</Link>
+    </section>
+  </main>;
+}
