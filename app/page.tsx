@@ -74,7 +74,7 @@ export default function HomePage() {
             <span><span className="block text-xl font-bold tracking-tight text-[#173e78]">GapSkill</span><span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[.19em] text-slate-500">Inteligência de competências</span></span>
           </a>
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-            <a href="#metodologia" className="transition hover:text-[#173e78]">Metodologia</a>
+            <a href="/metodologia" className="transition hover:text-[#173e78]">Metodologia</a>
             <a href="#aplicacoes" className="transition hover:text-[#173e78]">Aplicações</a>
             <a href="#analise" className="inline-flex items-center gap-2 rounded-md bg-[#173e78] px-5 py-3 font-semibold text-white transition hover:bg-[#2458a6]">Iniciar diagnóstico <ArrowRight size={16}/></a>
           </nav>
@@ -91,7 +91,7 @@ export default function HomePage() {
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">A GapSkill compara os requisitos de uma oportunidade profissional com as competências evidenciadas no seu CV, ajudando a identificar lacunas e prioridades de desenvolvimento.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href="#analise" className="inline-flex items-center justify-center gap-2 rounded-md bg-[#173e78] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#2458a6]">Iniciar diagnóstico <ArrowRight size={17}/></a>
-              <a href="#metodologia" className="inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-[#173e78] transition hover:border-[#2458a6]">Conhecer a metodologia <ArrowDown size={16}/></a>
+              <a href="/metodologia" className="inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-[#173e78] transition hover:border-[#2458a6]">Conhecer a metodologia <ArrowRight size={16}/></a>
             </div>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 border-t border-slate-200 pt-5 text-sm text-slate-600">
               <span className="inline-flex items-center gap-2"><ShieldCheck size={17} className="text-[#2458a6]"/> Utilização responsável de dados</span>
@@ -176,7 +176,7 @@ export default function HomePage() {
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <a href="#" className="flex items-center gap-3"><span className="flex h-9 w-9 items-center justify-center bg-[#173e78] text-white"><BrainCircuit size={19}/></span><span><span className="block font-bold text-[#173e78]">GapSkill</span><span className="block text-[10px] uppercase tracking-[.16em] text-slate-500">Inteligência de competências</span></span></a>
-          <p className="max-w-md text-sm leading-6 text-slate-500">Apoio ao desenvolvimento profissional através da análise estruturada de requisitos e competências.</p>
+          <div className="flex flex-wrap gap-4 text-sm text-slate-500"><a className="hover:text-[#173e78]" href="/metodologia">Metodologia</a><a className="hover:text-[#173e78]" href="/privacidade">Privacidade</a></div>
           <p className="text-xs text-slate-400">© {new Date().getFullYear()} GapSkill</p>
         </div>
       </footer>
