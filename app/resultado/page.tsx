@@ -29,7 +29,7 @@ export default function ResultPage() {
     <div className="mx-auto max-w-4xl">
       <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-brand"><ArrowLeft size={16}/> Nova análise</Link>
       <header className="mt-7">
-        <p className="text-sm font-bold uppercase tracking-[.18em] text-brand">Relatório GapSkill</p>
+        <p className="text-sm font-bold uppercase tracking-[.18em] text-brand">Relatório de diagnóstico | GapSkill</p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">{report.title}</h1>
         <p className="mt-3 max-w-2xl leading-7 text-slate-600">Compara os requisitos que o sistema identificou com evidências encontradas no CV que enviou.</p>
       </header>
@@ -74,7 +74,7 @@ export default function ResultPage() {
         <div className="mt-4 flex flex-wrap gap-2">{report.gaps.filter(g=>g.status!=="matched").slice(0,8).map(g=><span key={g.skillId} className="rounded-full bg-slate-100 px-3 py-1.5 text-sm text-slate-700">{g.skillName}</span>)}</div>
       </section>
 
-      <div className="mt-8 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950"><CircleAlert className="mt-0.5 shrink-0" size={20}/><p>{report.disclaimer} O resultado é preliminar, usa uma taxonomia limitada e não é guardado numa conta nem numa base de dados nesta versão.</p></div>
+      <div className="mt-8 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950"><CircleAlert className="mt-0.5 shrink-0" size={20}/><p>{report.disclaimer} Este resultado é preliminar, utiliza uma taxonomia ainda limitada e não é guardado numa conta ou base de dados nesta versão.</p></div>
       <div className="mt-8 flex justify-center"><Link href="/" className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 font-semibold text-white"><CheckCircle2 size={18}/> Analisar outra oportunidade</Link></div>
     </div>
   </main>;
